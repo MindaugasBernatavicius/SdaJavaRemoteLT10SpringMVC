@@ -1,0 +1,50 @@
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main.html}">
+<div layout:fragment="content">
+    <h1>This is posts page</h1>
+    <!--<ul >-->
+    <!--    <li th:each="post, idx: ${posts}" th:text="${post.author} + '-' + ${idx.count}"></li>-->
+    <!--</ul>-->
+
+    <!-- For loop with a counter variable for table data count indication with Thymeleaf -->
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>ID</th>
+                <th>Author</th>
+                <th>Post</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post, idx: ${posts}">
+                <td th:text="${idx.count}" />
+                <td th:text="${post.id}" />
+                <td th:text="${post.author}" />
+                <td th:text="${post.post}" />
+                <td>
+                    <!-- https://stackoverflow.com/a/36235536/1964707 -->
+                    <a th:href="@{'/posts/delete/' + ${post.id}}">
+                        <button class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <form th:action="@{/posts/create}" th:object="${blogPost}" method="post">
+        <label for="author_ssn">Author SSN</label><br/>
+        <input type="text" id="author_ssn" name="id" value=""><br/>
+
+        <label for="author_name">Author Name</label><br/>
+        <input type="text" id="author_name" name="author" value=""><br/>
+        <div th:if="${#fields.hasErrors('author')}" class="error" style="color: red">
+            <td th:errors="*{author}">Name Error</td>
+        </div>
+
+        <label for="post">Post</label><br/>
+        <input type="text" id="post" name="post" value=""><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>

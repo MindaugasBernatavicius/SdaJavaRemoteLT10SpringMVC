@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
-    <body>
-        <p>Hello <span th:text="${name_in_view  == '' || name_in_view  == null } ? 'stranger' : ${name_in_view}"></span>!</p>
-    </body>
-</html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main.html}">
+<p layout:fragment="content">Hello <span th:text="${name_in_view  == '' || name_in_view  == null }
+            ? 'stranger' : ${name_in_view}"></span>!
+</p>
