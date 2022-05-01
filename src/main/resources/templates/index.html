@@ -1,4 +1,7 @@
-<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main.html}">
-<p layout:fragment="content">Hello <span th:text="${name_in_view  == '' || name_in_view  == null }
-            ? 'stranger' : ${name_in_view}"></span>!
+<!-- index.html -->
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layouts/main.html}">
+<p layout:fragment="content">
+    Hello <span th:text="${name_in_view  == '' || name_in_view  == null } ? 'stranger' : ${name_in_view}"></span>!
 </p>

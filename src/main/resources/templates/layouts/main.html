@@ -1,3 +1,4 @@
+<!-- main.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
 <head>
@@ -63,8 +64,8 @@
         <a href="/">Home</a>
         <a href="/posts">Posts</a>
     </div>
-    <!--<div th:replace="fragments/header :: header"></div>-->
+    <div th:replace="fragments/header :: header"></div>
     <div layout:fragment="content"></div>
-    <!--<div th:replace="fragments/footer :: footer"></div>-->
+    <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
