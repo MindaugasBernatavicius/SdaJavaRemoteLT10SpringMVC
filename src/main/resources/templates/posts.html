@@ -37,7 +37,7 @@
     <br/>
     <form th:action="@{/posts/create}" th:object="${blogPost}" method="post">
         <label for="author_ssn">Author SSN</label><br/>
-        <input type="text" id="author_ssn" name="id" value=""><br/>
+        <input type="text" oninput="validate(this)" id="author_ssn" name="id" value=""><br/>
 
         <label for="author_name">Author Name</label><br/>
         <input type="text" id="author_name" name="author" value=""><br/>
